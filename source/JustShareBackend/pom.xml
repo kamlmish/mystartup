@@ -1,10 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.geekStartup.service</groupId>
-	<artifactId>JustShareService</artifactId>
-	<version>0.0.1</version>
-	<packaging>war</packaging>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.geekStartup.justShare.backend</groupId>
+    <artifactId>JustShare-backend-full</artifactId>
+    <version>1.0</version>
+    <name>JustShareBackend</name>
+    <packaging>pom</packaging>
+    <description>JustShare Backend layer</description>
 	
 	<properties>
 		<sonar.jdbc.url>jdbc:mysql://localhost:3306/sonar?useUnicode=true&amp;characterEncoding=utf8</sonar.jdbc.url>
@@ -14,6 +16,12 @@
 		<sonar.jdbc.driver>com.mysql.jdbc.Driver</sonar.jdbc.driver>
 		<sonar.scm.enabled>false</sonar.scm.enabled>
 	</properties>
+	
+	<modules>
+		<module>JustShareCommons</module>
+		<module>JustShareData</module>
+		<module>JustShareService</module>
+    </modules>
 	
 	<build>
 		<finalName>${project.artifactId}</finalName>
@@ -44,12 +52,4 @@
 			-->
 		</plugins>
 	</build>
-	<!--
-	<dependencies>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.12</version>
-		</dependency>
-	</dependencies> -->
 </project>

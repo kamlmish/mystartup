@@ -15,6 +15,7 @@
 		<sonar.host.url>http://localhost:9000</sonar.host.url>
 		<sonar.jdbc.driver>com.mysql.jdbc.Driver</sonar.jdbc.driver>
 		<sonar.scm.enabled>false</sonar.scm.enabled>
+		<spring.version>4.1.6.RELEASE</spring.version>
 	</properties>
 	
 	<modules>

@@ -6,6 +6,10 @@
 	<version>1.0</version>
 	<packaging>jar</packaging>
 	
+	<properties>
+		<spring.version>4.1.6.RELEASE</spring.version>
+	</properties>
+	
 	<build>
 		<finalName>${project.artifactId}</finalName>
 	</build>
@@ -15,6 +19,32 @@
 			<groupId>com.geekStartup.justShare.backend</groupId>
 			<artifactId>JustShareCommons</artifactId>
 			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+ 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.orientechnologies</groupId>
+			<artifactId>orientdb-graphdb</artifactId>
+			<version>2.0.8</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
 		</dependency>
 	</dependencies>
 </project>

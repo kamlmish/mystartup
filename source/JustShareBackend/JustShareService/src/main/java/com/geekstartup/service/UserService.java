@@ -4,6 +4,7 @@
 package com.geekstartup.service;
 
 import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.Response;
 
 import com.geekstartup.vo.User;
 
@@ -19,7 +20,7 @@ public interface UserService {
 	 * 
 	 * @param user
 	 */
-	public void createUser(User user) throws WebApplicationException;
+	public Object createUser(User user) throws WebApplicationException;
 	
 	/**
 	 * Get a user by ID
@@ -27,5 +28,5 @@ public interface UserService {
 	 * @param userID
 	 * @return User if found, else HTTP 404
 	 */
-	public User getUserByID(String userID) throws WebApplicationException;
+	public Object getUserByID(String userID) throws WebApplicationException;
 }

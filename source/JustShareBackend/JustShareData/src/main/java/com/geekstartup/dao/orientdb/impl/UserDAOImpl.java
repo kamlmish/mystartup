@@ -13,6 +13,7 @@ import com.geekstartup.vo.User;
 import com.orientechnologies.orient.core.sql.OCommandSQL;
 import com.tinkerpop.blueprints.Vertex;
 import com.tinkerpop.blueprints.impls.orient.OrientGraph;
+import java.util.Date;
 
 /**
  * @author tanmoy.banerjee
@@ -29,16 +30,16 @@ public class UserDAOImpl implements UserDAO {
 		Object id = null;
 		
 		try {
-			graph = OrientDBManager.getGraph();
+			graph = OrientDBManager.dBManagerInstance().getGraph();
 			//TODO: 1) userID and email are mandatory 2) check for userID duplication
 			
 			Vertex userVertex = graph.addVertex(null);
 			userVertex.setProperty("type", DataType.USER);
 			userVertex.setProperty("userId", user.getUserID());
-			userVertex.setProperty("firstName", user.getFirstName());
-			userVertex.setProperty("lastName", user.getLastName());
-			userVertex.setProperty("emailID", user.getEmailID());
-			userVertex.setProperty("mobileNumber", user.getMobileNumber());
+			userVertex.setProperty("userEmail", user.getUserEmail());
+			userVertex.setProperty("password", user.getPassword());
+			userVertex.setProperty("ipAdderss", user.getIpAdderss());
+			userVertex.setProperty("loginTime", user.getLoginTime());
 			graph.commit();
 			
 			id = userVertex.getId();
@@ -47,7 +48,7 @@ public class UserDAOImpl implements UserDAO {
 			ex.printStackTrace();
 			graph.rollback();
 		} finally {
-			OrientDBManager.close(graph);
+			OrientDBManager.dBManagerInstance().close(graph);
 		}
 		return id;
 	}
@@ -61,7 +62,7 @@ public class UserDAOImpl implements UserDAO {
 		OrientGraph graph = null;
 		if(!StringUtils.isEmpty(userId)) {
 			try {
-				graph = OrientDBManager.getGraph();
+				graph = OrientDBManager.dBManagerInstance().getGraph();
 				String sqlQuery = "select from v where type = '" + DataType.USER + "' and userId = '" + userId + "'";
 				System.out.println("sqlQuery: " + sqlQuery);
 				Iterable<Vertex> userVertices = graph.command(new OCommandSQL(sqlQuery)).execute();
@@ -69,10 +70,11 @@ public class UserDAOImpl implements UserDAO {
 					for(Vertex userVertex : userVertices) {
 						user = new User();
 						user.setUserID(userId);
-						user.setFirstName((String)userVertex.getProperty("firstName"));
-						user.setLastName((String)userVertex.getProperty("lastName"));
-						user.setEmailID((String)userVertex.getProperty("emailID"));
-						user.setMobileNumber((String)userVertex.getProperty("mobileNumber"));
+						user.setUserEmail((String)userVertex.getProperty("userEmail"));
+						user.setPassword((String)userVertex.getProperty("password"));
+						user.setUserID((String)userVertex.getProperty("userID"));
+						user.setIpAdderss((String)userVertex.getProperty("ipAdderss"));
+                                                user.setLoginTime((Date)userVertex.getProperty("loginTime"));
 						
 						break;//should have only one record, or return the first one
 					}
@@ -80,7 +82,7 @@ public class UserDAOImpl implements UserDAO {
 			} catch(Exception ex) {
 				ex.printStackTrace();
 			} finally {
-				OrientDBManager.close(graph);
+				OrientDBManager.dBManagerInstance().close(graph);
 			}
 		} else {
 			System.err.println("userId is null or empty !");

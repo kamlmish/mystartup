@@ -3,79 +3,93 @@
  */
 package com.geekstartup.vo;
 
+import java.util.Date;
+
+
+
 /**
  * @author tanmoy.banerjee
  *
  */
 public class User extends BaseObject {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 6888354124741716111L;
-	
-	private String userID;
-	private String firstName;
-	private String lastName;
-	private String emailID;
-	private String mobileNumber;
-	/**
-	 * @return the userID
-	 */
-	public String getUserID() {
-		return userID;
-	}
-	/**
-	 * @param userID the userID to set
-	 */
-	public void setUserID(String userID) {
-		this.userID = userID;
-	}
-	/**
-	 * @return the firstName
-	 */
-	public String getFirstName() {
-		return firstName;
-	}
-	/**
-	 * @param firstName the firstName to set
-	 */
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	/**
-	 * @return the lastName
-	 */
-	public String getLastName() {
-		return lastName;
-	}
-	/**
-	 * @param lastName the lastName to set
-	 */
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	/**
-	 * @return the emailID
-	 */
-	public String getEmailID() {
-		return emailID;
-	}
-	/**
-	 * @param emailID the emailID to set
-	 */
-	public void setEmailID(String emailID) {
-		this.emailID = emailID;
-	}
-	/**
-	 * @return the mobileNumber
-	 */
-	public String getMobileNumber() {
-		return mobileNumber;
-	}
-	/**
-	 * @param mobileNumber the mobileNumber to set
-	 */
-	public void setMobileNumber(String mobileNumber) {
-		this.mobileNumber = mobileNumber;
-	}
+
+    private String userID;
+    private String userEmail;
+    private String password;
+    private Date loginTime;
+    private String ipAdderss;
+
+    /**
+     * @return the userID
+     */
+    public String getUserID() {
+        return userID;
+    }
+
+    /**
+     * @param userID the userID to set
+     */
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    /**
+     * @return the userEmail
+     */
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    /**
+     * @param userEmail the userEmail to set
+     */
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    /**
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * @return the loginTime
+     */
+    public Date getLoginTime() {
+        return loginTime;
+    }
+
+    /**
+     * @param loginTime the loginTime to set
+     */
+    public void setLoginTime(Date loginTime) {
+        this.loginTime = loginTime;
+    }
+
+    /**
+     * @return the ipAdderss
+     */
+    public String getIpAdderss() {
+        return ipAdderss;
+    }
+
+    /**
+     * @param ipAdderss the ipAdderss to set
+     */
+    public void setIpAdderss(String ipAdderss) {
+        this.ipAdderss = ipAdderss;
+    }
+
+    public void getLoginTime(Date date) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
